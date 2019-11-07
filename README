@@ -1,0 +1,11 @@
+# notSoBasicArduino
+My notSoBasic Arduino
+
+These are the first assighnments that I did in quarter 1 year 1 at CHS.
+They are the codes to the first couple assighnments I did.
+The Hello functions assignment is one of the assignments I did. I had to power a sensor with code.
+Also I had to wire it and make it tell me the distance of an object that is in the range of it.
+The NewPing() assignment is another assignment that I finished.
+The assignment was to make something cool but basic.
+Either turning on or off an LED.
+Or powering a sensor. Either way is fine.
