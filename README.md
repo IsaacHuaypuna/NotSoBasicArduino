@@ -20,7 +20,7 @@ This was my second assignment in Engineering class. NewPing() is an assignment t
 make something cool but simple. Like turning on and off a couple of LEDs in a pattern or at the same time or do something with the sensor. What I did though was an something of both LED and ultrasonic sensor. My sensor would do what a sensor does best and dectect an item and if it dectects an item it will turn on an LED.
 
 ## Wiring Diagram:
-
+<img src="media/Lucy-NewPing-Ultrasonic.png" width="392px"/>
 
 ## Lessons:
  Sensors can do a lot more than what I originally thought.
