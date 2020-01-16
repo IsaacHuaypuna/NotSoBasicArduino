@@ -2,7 +2,7 @@
 
 
 ## Description:
-HelloFunctions was my first assignment in Engineering.The assignment is about trying to make a sensor work and tell the distance between the sensor and the object infront of it. The way the sensor will tell you the distance is by using the Serial monitor. Not just that but once the sensor finds the distance of an object it will move a servo for whatever the distance was of the object. Range of the sensor is pretty short though. The srevo also moves up to a 180 instead of a 360.
+HelloFunctions was my first assignment in Engineering.The assignment is about trying to make a sensor work and tell the distance between the sensor and the object infront of it. The way the sensor will tell you the distance is by using the Serial monitor. Not just that but once the sensor finds the distance of an object it will move a servo for whatever the distance was of the object. Range of the sensor is pretty short though. The function of the sensor was to detect the distance and then send a message to the servo of the distance to move it and then the sensor will do it again once the servo resets its self.
 
 ## Wiring Diagram:
 <img src="media/Ultrasonic_Sensor_with_Servo.png" width="392px"/>
@@ -33,6 +33,7 @@ make something cool but simple. Like turning on and off a couple of LEDs in a pa
 
 
 ## Description:
+This was like a review or a "blast from the past" sort of thing. The instructions are simple open up Sublime which is the new place for coding instead of Arduino. Make a code to make an LED blink and then after that make it fade in and out. Also make a wiring to make the LED work.
 
 ## Wiring Diagram:
 
