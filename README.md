@@ -26,3 +26,15 @@ make something cool but simple. Like turning on and off a couple of LEDs in a pa
  Sensors can do a lot more than what I originally thought.
  Sensors are more complicated than i thought.
  Asking isn't a tool of cowards its a tool of trying.
+ 
+ 
+ 
+# LED Fade (LED Blink Revisited)
+
+
+## Description:
+
+## Wiring Diagram:
+
+
+## Lessons:
