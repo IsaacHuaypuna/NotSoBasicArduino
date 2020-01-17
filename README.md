@@ -40,6 +40,63 @@ make something cool but simple. Like turning on and off a couple of LEDs in a pa
 This was like a review or a "blast from the past" sort of thing. The instructions are simple open up Sublime which is the new place for coding instead of Arduino. Make a code to make an LED blink and then after that make it fade in and out. Also make a wiring to make the LED work.
 
 # Code
+This is the code i used for the LED fadeing
+
+/*
+
+  Fade
+
+  This example shows how to fade an LED on pin 9 using the analogWrite()
+  function.
+
+  The analogWrite() function uses PWM, so if you want to change the pin you're
+  using, be sure to use another PWM capable pin. On most Arduino, the PWM pins
+  are identified with a "~" sign, like ~3, ~5, ~6, ~9, ~10 and ~11.
+
+  This example code is in the public domain.
+
+  http://www.arduino.cc/en/Tutorial/Fade
+*/
+
+int led = 9;           // the PWM pin the LED is attached to\
+
+int brightness = 0;    // how bright the LED is
+
+int fadeAmount = 5;    // how many points to fade the LED by
+
+// the setup routine runs once when you press reset:
+
+void setup() {
+
+  // declare pin 9 to be an output:
+  
+  pinMode(led, OUTPUT);
+  
+}
+
+// the loop routine runs over and over again forever:
+
+void loop() {
+
+  // set the brightness of pin 9:
+  
+  analogWrite(led, brightness);
+
+  // change the brightness for next time through the loop:
+  
+  brightness = brightness + fadeAmount;
+
+  // reverse the direction of the fading at the ends of the fade:
+  
+  if (brightness <= 0 || brightness >= 255) {
+  
+    fadeAmount = -fadeAmount;
+  }
+  // wait for 30 milliseconds to see the dimming effect
+  
+  delay(30);
+  
+}
 
 ## Wiring Diagram:
 
@@ -65,6 +122,42 @@ lcd.print("stuff");
 and if the this If that code throws an error, you might need to install the LiquidCrystal library. In Sublime, select Arduino -> Install Library -> Display -> L -> LiquidCrystal -> [the most recent one]. This was from the intructions. The objective in this assignment was to make the LCD say "Hello World" and a timer that counts every second its on.
 
 ## Code
+This was the code I used for the LCD
+
+/ include the library code:
+
+#include <LiquidCrystal.h>
+
+LiquidCrystal lcd(7, 8, 9, 10, 11, 12); 
+
+// Those are the pins for RS, EN, DB4, DB5, DB6, DB7, respectively
+
+void setup() {
+
+  // set up the LCD's number of columns and rows:
+  
+  lcd.begin(16, 2);
+  
+  // Print a message to the LCD.
+  
+  lcd.print("stuff");
+  
+}
+
+void loop() {
+
+  // set the cursor to column 0, line 1
+  
+  // (note: line 1 is the second row, since counting begins with 0):
+  
+  lcd.setCursor(0, 1);
+  
+  // print the number of seconds since reset:
+  
+  lcd.print(millis() / 1000);
+  
+}
+
 
 ## Wiring
 
@@ -93,7 +186,93 @@ lcd.backlight();
 
 after all of this and your code from the other assignment LCD Hello World It should work and say Hello World with a timer. After all of this instructions its time for the assignment. The assignment is to add a button on your breadboard and make your LCD count the amount of times the button has been pressed. After that the "Even spicier" assignment is to makei it do that but with a switch and if the switvh is on one side the button will count up. I its in the other side then the amount of times you press the button will make it count down.
 
-## Code
+## Code 
+This is the code I used for my LCD BackPack with the switch and 12C.
+
+// Adapted from Harrison
+
+// Jude Fairchild
+
+// LCD Backpack
+
+/* using the LCD backpack with a button to increase
+
+the number and when the switch is pressed it switches from +/-
+
+*/
+
+#include <Wire.h>
+
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x3F, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display.
+
+// If 0x27 doesn't work, try 0x3F.
+
+int buttonPin = 2;
+
+int a = 0;  //a is the number of times the button is pressed.
+
+int buttonState = 0;
+
+int oldButtonState = 0;
+
+int switchPin = 12;
+
+int switchState = 0;
+
+void setup()
+
+{
+
+  lcd.init();
+  
+  lcd.backlight();
+  
+  lcd.print("Button presses:");
+  
+  pinMode(buttonPin, INPUT);
+  
+  pinMode(switchPin, INPUT);
+  
+}
+
+void loop()
+
+{
+
+  switchState = digitalRead(switchPin);
+  
+  buttonState = digitalRead(buttonPin);
+  
+  lcd.setCursor(0, 1);
+  
+  if (buttonState == HIGH && oldButtonState == LOW && switchState == 0)
+  
+  {
+  
+    lcd.print(++a); // sets so it adds
+    
+    lcd.print(" ");
+    
+  }
+  
+  if (buttonState == HIGH && oldButtonState == LOW && switchState == 1)
+  
+  {
+  
+    lcd.setCursor(0, 1);
+    
+    lcd.print(--a); // sets so it decreases
+    
+    lcd.print(" ");
+    
+  }
+  
+  oldButtonState = buttonState;
+  
+}
+
 
 ## wiring
 
